@@ -1,12 +1,12 @@
 # Simulated Robots Package 
-This package will provide all of the necesarry files to get a simulated robot up and running. This includes the urdf, configuartion and launch files for a robot capable of mapping and localization as well as autonamous and tele-operated navigation. There 2 robot types available at the moment: 2-wheeled and 4-wheeled differential drive. The package is being written for humble, but once its finished it will be ported to jazzy and foxy. 
+This package will provide all of the necesarry files to get a simulated robot up and running. This includes the urdf, configuartion and launch files for a robot capable of mapping and localization as well as autonamous and tele-operated navigation. There 2 robot types available at the moment: 2-wheeled and 4-wheeled differential drive. The package is being written for humble, and has been ported to foxy, it will be upgraded to jazzy in the future. 
 
 ## Supported on
 Currently supported:
- - [Ubuntu 20.04 LTS](https://releases.ubuntu.com/jammy/) & [ROS2 Foxy](https://docs.ros.org/en/foxy/Installation.html),
+ - [Ubuntu 20.04 LTS](https://releases.ubuntu.com/focal/) & [ROS2 Foxy](https://docs.ros.org/en/foxy/Installation.html),
  - [Ubuntu 22.04 LTS](https://releases.ubuntu.com/jammy/) & [ROS2 Humble](https://docs.ros.org/en/rolling/Releases/Release-Humble-Hawksbill.html)
 
-Support for foxy and jazzy is planned.
+Support for jazzy is planned.
 
 
 ## Usage 
@@ -48,11 +48,12 @@ ros2 launch sim_bot four_wheel_sim.launch.py rviz:=False slam:=False nav:=False
 ## Dependencies
 This packages is designed to be require minimal set-up for robot simulations, so i tried to keep the dependencies to a minimum. Xacro is used for urdf flexibility, gazebo is the simulator being used, and slam-toolbox and navigation2 are a commonly used tools to give autonomy to a robot.
 ```bash
-sudo apt install -y               \
-    ros-humble-xacro              \
-    ros-humble-navigation2        \
-    ros-humble-slam-toolbox       \
-    ros-humble-gazebo-ros-pkgs    \
+sudo apt install -y                     \
+    ros-<ros-distro>-xacro              \
+    ros-<ros-distro>-twist-mux          \
+    ros-<ros-distro>-navigation2        \
+    ros-<ros-distro>-slam-toolbox       \
+    ros-<ros-distro>-gazebo-ros-pkgs    \
 ```
 
 
@@ -75,6 +76,5 @@ ros2 launch sim_bot diff_bot_sim.launch.py
 ## TODO 
 Package is still being worked on, however the core funtionality is pretty much done, will be adding these feature over the next couple of days.
  - [ ] add ackerman-type robot support 
- - [ ] port to foxy(wip)
  - [ ] port to jazzy
  - [ ] update readme 

@@ -1,18 +1,29 @@
-cmake_minimum_required(VERSION 3.8) # min cmake version
-project(sim_bot)                    # package name
+cmake_minimum_required(VERSION 3.5) # min cmake version
+project(sim_bot)                    # project name
 
-# Compiler Options
+# Default to C99
+if(NOT CMAKE_C_STANDARD)
+  set(CMAKE_C_STANDARD 99)
+endif()
+
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+
+# Compiler options
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# Find dependencies
+# find dependencies
 find_package(ament_cmake REQUIRED)
-#find_package(<dependency> REQUIRED) add more here
+# uncomment the following section in order to fill in
+# further dependencies manually.
+# find_package(<dependency> REQUIRED)
 
-# Install files
 install(
-  DIRECTORY config description launch rviz worlds
+  DIRECTORY config description launch worlds rviz
   DESTINATION share/${PROJECT_NAME}
 )
 

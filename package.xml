@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>sim_bot</name>
-  <version>0.0.1</version>
+  <version>0.1.0</version>
   <description>ROS2 package for simulated robots</description>
   <maintainer email="ingalexanderlevy@gmail.com">Alex Levy</maintainer>
   <license>Apache-2.0</license>
@@ -11,8 +11,10 @@
 
   <!-- Add dependencies -->
   <depend>ros-humble-xacro</depend>
+  <depend>ros-humble-twist-mux</depend>
   <depend>ros-humble-gazebo-ros-pkgs</depend>
-  <depend>ros-humble-slam-toolbox</depend>     <!-- Added slam -->
+  <depend>ros-humble-slam-toolbox</depend>     
+  <depend>ros-humble-navigation2</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
