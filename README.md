@@ -31,19 +31,19 @@ Humble | Fortress | [humble-new-gazebo](https://github.com/Alexander-Levy/sim_bo
 ### Two Wheeled Differential Drive Robot
 The differential drive robot simulation can be run with the following command:
 ```bash
-ros2 launch sim_bot diff_bot_sim.launch.py 
+ros2 launch sim_bot diff_bot.launch.py 
 ```
 
 ### Four Wheel Differential Drive Robot
 The four wheel drive robot simulation can be run with the following command:
 ```bash
-ros2 launch sim_bot four_wheel_sim.launch.py 
+ros2 launch sim_bot four_wheel.launch.py 
 ```
 
 ### Ackermann Robot
 The ackermann robot simulation can be run with the following command:
 ```bash
-ros2 launch sim_bot ackermann_sim.launch.py 
+ros2 launch sim_bot ackermann.launch.py 
 ```
 
 ### Controlling the robot
@@ -65,7 +65,7 @@ nav:=       True/False      True        Navigation stack is launched if True
 
 These configurations are the same no matter the robot type. Example launch command with custom arguments:
 ```bash 
-ros2 launch sim_bot four_wheel_sim.launch.py rviz:=False slam:=False nav:=False
+ros2 launch sim_bot four_wheel.launch.py rviz:=False slam:=False nav:=False
 ```
 
 
@@ -93,7 +93,7 @@ colcon build --symlink-install
 Launch the simulation to test the package
 ```bash
 source ./install/setup.bash
-ros2 launch sim_bot diff_bot_sim.launch.py 
+ros2 launch sim_bot diff_bot.launch.py 
 ```
 
 
