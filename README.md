@@ -6,13 +6,13 @@ The package is still being worked on and early in development
 
 ## Supported on
 Currently supported:
- - [Ubuntu 20.04 LTS](https://releases.ubuntu.com/focal/) & [ROS2 Foxy](https://docs.ros.org/en/foxy/Installation.html) 
-    - (Gazebo Classic)
- - [Ubuntu 22.04 LTS](https://releases.ubuntu.com/jammy/) & [ROS2 Humble](https://docs.ros.org/en/rolling/Releases/Release-Humble-Hawksbill.html) 
-    - (Gazebo Classic & New Gazebo)
- - Support for [Ubuntu 24.04](https://releases.ubuntu.com/noble/) & [ROS2 Jazzy](https://docs.ros.org/en/jazzy/Installation.html) is planned.
-    - (New Gazebo)
- - Support for gazebo fortress on humble is planned.
+Ubuntu Version | ROS 2 version | Gazebo
+-- | -- | -- 
+[Ubuntu 20.04 LTS](https://releases.ubuntu.com/focal/) | [ROS2 Foxy](https://docs.ros.org/en/foxy/Installation.html) | Gazebo Classic 
+[Ubuntu 22.04 LTS](https://releases.ubuntu.com/jammy/)| [ROS2 Humble](https://docs.ros.org/en/rolling/Releases/Release-Humble-Hawksbill.html) | Gazebo Classic & Gazebo
+
+Support for [Ubuntu 24.04](https://releases.ubuntu.com/noble/) & [ROS2 Jazzy](https://docs.ros.org/en/jazzy/Installation.html) is planned.
+
 
 ### Note
 ROS Iron could work with the humble branches but this has not been tested.
