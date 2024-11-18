@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
     <!-- Main URDF file for Differential Drive Robot -->
+   
     <!-- Include general xacro files -->
-    <xacro:include filename="inertials.xacro"/>
-    <xacro:include filename="materials.xacro"/>
+    <xacro:include filename="common.xacro"/>
 
     <!-- Include sensors -->
     <xacro:include filename="lidar.xacro"/>

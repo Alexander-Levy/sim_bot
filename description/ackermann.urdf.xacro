@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
     <!-- Main URDF file for Ackermann Drive Robot -->
+
     <!-- Include general xacro files -->
-    <xacro:include filename="inertials.xacro"/>
-    <xacro:include filename="materials.xacro"/>
+    <xacro:include filename="common.xacro"/>
 
     <!-- Include sensors -->
     <xacro:include filename="lidar.xacro"/>
@@ -71,7 +71,7 @@
         <child link="front_left_steer" />
         <origin xyz="${front_wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0" />
         <axis xyz="0 0 1" />
-        <limit upper="0.6" lower="-0.6" effort="-1.0" velocity="-1.0" />
+        <limit upper="0.8" lower="-0.8" effort="-1.0" velocity="-1.0" />
     </joint>
     <link name="front_left_steer">
         <inertial>
@@ -91,7 +91,7 @@
         <child link="front_right_steer" />
         <origin xyz="${front_wheel_offset_x} ${-wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0" />
         <axis xyz="0 0 1" />
-        <limit upper="0.6" lower="-0.6" effort="-1.0" velocity="-1.0" />
+        <limit upper="0.8" lower="-0.8" effort="-1.0" velocity="-1.0" />
     </joint>
     <link name="front_right_steer">
         <inertial>
@@ -303,8 +303,8 @@
             <steering_wheel_joint>virtual_steering_wheel_joint</steering_wheel_joint>
             <!-- Limits -->
             <max_speed>20</max_speed>
-            <max_steer>1.5</max_steer>
-            <max_steering_angle>9.0</max_steering_angle>
+            <max_steer>1.57</max_steer>
+            <max_steering_angle>15.0</max_steering_angle>
             <!-- PID tuning -->
             <left_steering_pid_gain>200 0 1</left_steering_pid_gain>
             <left_steering_i_range>0 0</left_steering_i_range>
