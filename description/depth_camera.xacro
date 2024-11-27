@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
-    <!-- Deepth Camera -->
+    <!-- Depth Camera -->
     <joint name="camera_joint" type="fixed">
         <parent link="chassis"/>
         <child link="camera_link"/>
@@ -14,14 +14,14 @@
             <material name="purple"/>
         </visual>
     </link>
-    <!-- Deepth camera optical link -->
+    <!-- Depth camera optical link -->
     <joint name="camera_optical_joint" type="fixed">
         <parent link="camera_link"/>
         <child link="camera_link_optical"/>
         <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
     </joint>
     <link name="camera_link_optical"></link>
-    <!-- Deepth Camera Gazebo Sensor Plugin -->
+    <!-- Depth Camera Gazebo Sensor Plugin -->
     <gazebo reference="camera_link">
         <material>Gazebo/Purple</material>
 

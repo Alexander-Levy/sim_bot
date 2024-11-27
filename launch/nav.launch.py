@@ -8,9 +8,11 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
+    
     # Get the launch directory
-    bringup_dir = get_package_share_directory('sim_bot')
+    package_name = get_package_share_directory('sim_bot')
 
+    # Launch configurations
     namespace = LaunchConfiguration('namespace')
     use_sim_time = LaunchConfiguration('use_sim_time')
     autostart = LaunchConfiguration('autostart')
@@ -18,12 +20,14 @@ def generate_launch_description():
     default_bt_xml_filename = LaunchConfiguration('default_bt_xml_filename')
     map_subscribe_transient_local = LaunchConfiguration('map_subscribe_transient_local')
 
+    # Managed navigation nodes
     lifecycle_nodes = ['controller_server',
                        'planner_server',
                        'recoveries_server',
                        'bt_navigator',
                        'waypoint_follower']
 
+    # Topic remappings
     remappings = [('/tf', 'tf'),
                   ('/tf_static', 'tf_static')]
 
@@ -44,6 +48,7 @@ def generate_launch_description():
         # Set env var to print messages to stdout immediately
         SetEnvironmentVariable('RCUTILS_LOGGING_BUFFERED_STREAM', '1'),
 
+        # Declare launch arguments
         DeclareLaunchArgument(
             'namespace', default_value='',
             description='Top-level namespace'),
@@ -57,21 +62,19 @@ def generate_launch_description():
             description='Automatically startup the nav2 stack'),
 
         DeclareLaunchArgument(
-            'params_file',
-            default_value=os.path.join(bringup_dir, 'config', 'nav_params.yaml'),
+            'params_file', default_value=os.path.join(package_name, 'config', 'nav_params.yaml'),
             description='Full path to the ROS2 parameters file to use'),
 
         DeclareLaunchArgument(
             'default_bt_xml_filename',
-            default_value=os.path.join(
-                get_package_share_directory('nav2_bt_navigator'),
-                'behavior_trees', 'navigate_w_replanning_and_recovery.xml'),
+            default_value=os.path.join(get_package_share_directory('nav2_bt_navigator'),'behavior_trees', 'navigate_w_replanning_and_recovery.xml'),
             description='Full path to the behavior tree xml file to use'),
 
         DeclareLaunchArgument(
             'map_subscribe_transient_local', default_value='false',
             description='Whether to set the map subscriber QoS to transient local'),
 
+        # Launch the nodes!
         Node(
             package='nav2_controller',
             executable='controller_server',

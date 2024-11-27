@@ -24,8 +24,6 @@ teleop_node:
       yaw: 1.0
 
     # Button settings
-    enable_button: 6 # Enable button set here
-    enable_turbo_button: 7 # Turbo button set here
-
-    # Decide if the enable button is required to send a command
-    require_enable_button: true #false
+    enable_button: 0 # Enable button set here
+    enable_turbo_button: 3 # Turbo button set here
+    require_enable_button: true 
