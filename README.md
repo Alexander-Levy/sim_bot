@@ -1,8 +1,8 @@
 # Simulated Robots Package 
-Minimal simulation for robots using ROS2 and Gazebo(Classic and New). This package provides all of the necesarry files to get a simulated robot up and running. This includes the urdf, parameters and launch files for a robot capable of sensing its enviroment, mapping and localization, as well as autonamous and tele-operated navigation. There are 2 robot types available at the moment: 2-wheeled and 4-wheeled differential drive. Currently four sensors are implemented: camera, depth camera, and 2D & 3D lidars. The package has been tested to work on humble and foxy, it will be upgraded to work with jazzy and new gazebo in the near future. 
+Minimal simulation for mobile robots using ROS2 and Gazebo(Classic and New). This package provides all of the necesarry files to get a simulated robot up and running. This includes the urdf, parameters and launch files for a robot capable of sensing its enviroment, mapping and localization, as well as autonamous and tele-operated navigation. There are 3 robot types available at the moment: 2-wheeled and 4-wheeled differential drive robot and an ackermann robot. Currently four sensors are implemented: camera, depth camera, and 2D & 3D lidars. The package has been tested to work on humble and foxy, it will be upgraded to work with jazzy in the near future. 
 
 ### Work in progress
-The package is still being worked on and early in development
+The package is still being worked on and in development
 
 ## Supported on
 Currently supported:
@@ -18,26 +18,35 @@ Support for [Ubuntu 24.04](https://releases.ubuntu.com/noble/) & [ROS2 Jazzy](ht
 ROS Iron could work with the humble branches but this has not been tested.
 
 ## Branches
-ROS 2 version | Gazebo version | Branch 
+ROS 2 version | Gazebo version | Branch Name
 -- | -- | -- 
 Foxy | Gazebo Classic | [foxy](https://github.com/Alexander-Levy/sim_bot/tree/foxy) 
 Humble | Gazebo Classic | [humble](https://github.com/Alexander-Levy/sim_bot/tree/humble) 
-Humble | Fortress | [humble-new-gazebo](https://github.com/Alexander-Levy/sim_bot/tree/humble-new-gazebo) 
+Humble | Gazebo Fortress | [humble-new-gazebo](https://github.com/Alexander-Levy/sim_bot/tree/humble-new-gazebo) 
 
 
 ## Usage
-![alt text](https://github.com/Alexander-Levy/sim_bot/blob/humble/media/simulaton_sample.png "Simulation")
+![alt text](https://github.com/Alexander-Levy/sim_bot/blob/foxy/media/gazebo_classic_sim.png "Gazebo Classic Simulation")
 
-### Differential Drive Robot
-The differential drive robot simulation can be run with the following command:
+
+![alt text](https://github.com/Alexander-Levy/sim_bot/blob/foxy/media/simulaton_sample.png "ROS Visualizer")
+
+### Two-Wheeled Differential Drive Robot
+The 2-wheeled differential drive robot simulation can be run with the following command:
 ```bash
-ros2 launch sim_bot diff_bot_sim.launch.py 
+ros2 launch sim_bot diff_bot.launch.py 
 ```
 
-### Four Wheel Drive Robot
-The four wheel drive robot simulation can be run with the following command:
+### Four-Wheeled Differential Drive Robot
+The 4-wheeled differential drive robot simulation can be run with the following command:
 ```bash
-ros2 launch sim_bot four_wheel_sim.launch.py 
+ros2 launch sim_bot four_wheel.launch.py 
+```
+
+### Ackermann Robot
+The ackermann robot simulation can be run with the following command:
+```bash
+ros2 launch sim_bot ackermann.launch.py 
 ```
 
 ### Controlling the robot
@@ -59,19 +68,19 @@ nav:=       True/False      True        Navigation stack is launched if True
 
 These configurations are the same no matter the robot type. Example launch command with custom arguments:
 ```bash 
-ros2 launch sim_bot four_wheel_sim.launch.py rviz:=False slam:=False nav:=False
+ros2 launch sim_bot four_wheel.launch.py rviz:=False slam:=False nav:=False
 ```
 
 
 ## Dependencies
 This packages is designed to be require minimal set-up for robot simulations, so i tried to keep the dependencies to a minimum. Xacro is used for urdf flexibility, gazebo is the simulator being used, twist-mux is used so that the robot can listen to multiple topics for velocity commands, and slam-toolbox and navigation2 are a commonly used tools to give autonomy to a robot.
 ```bash
-sudo apt install -y             \
-    ros-foxy-xacro              \
-    ros-foxy-twist-mux          \
-    ros-foxy-navigation2        \
-    ros-foxy-slam-toolbox       \
-    ros-foxy-gazebo-ros-pkgs    \
+sudo apt install -y           \
+    ros-foxy-xacro            \
+    ros-foxy-twist-mux        \
+    ros-foxy-navigation2      \
+    ros-foxy-slam-toolbox     \
+    ros-foxy-gazebo-ros-pkgs  \
 ```
 
 
@@ -87,12 +96,12 @@ colcon build --symlink-install
 Launch the simulation to test the package
 ```bash
 source ./install/setup.bash
-ros2 launch sim_bot diff_bot_sim.launch.py 
+ros2 launch sim_bot diff_bot.launch.py 
 ```
 
 
 ## TODO 
-Package is still being worked on, however the core funtionality is pretty much done, will be adding these feature over the next couple of days.
- - [ ] add ackerman-type robot support 
+Package is still being worked on, however the core funtionality is pretty much done.
+ - [ ] Write documentation 
  - [ ] Update readme 
 

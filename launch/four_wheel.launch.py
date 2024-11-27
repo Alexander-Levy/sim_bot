@@ -93,7 +93,7 @@ def generate_launch_description():
                         package='gazebo_ros', 
                         executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
-                                   '-entity', 'diff_bot'],
+                                   '-entity', 'four_wheel_diff_bot'],
                         output='screen'
     )
     
